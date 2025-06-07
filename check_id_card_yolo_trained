@@ -1,0 +1,20 @@
+from ultralytics import YOLO
+import cv2
+from matplotlib import pyplot as plt
+
+# Load your trained model
+model = YOLO("./models/best.pt")
+
+# Load test image
+img_path = "R:\PycharmProjects\id verification\id_card_dataset\test\images\s114_jpg.rf.0fae94068f9a4de30e49563b178f7597.jpg"
+results = model(img_path)
+
+# Show results with bounding boxes
+results[0].show()
+
+# (Optional) Display with matplotlib in Colab
+img = cv2.imread(img_path)
+plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+plt.axis('off')
+plt.title("Detection Result")
+plt.show()
