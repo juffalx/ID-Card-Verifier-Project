@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['Expiration', 'Name', 'University']
+
+roboflow:
+  workspace: brain-house
+  project: test-33-id
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/brain-house/test-33-id/dataset/3
