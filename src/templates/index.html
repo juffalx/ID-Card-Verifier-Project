@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ID Card Verifier</title>
+  </head>
+  <body>
+    <h2>Upload ID Card Image</h2>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" required />
+      <button type="submit">Verify</button>
+    </form>
+
+    {% if result %}
+    <h3>✅ Match Found!</h3>
+    <ul>
+      <li><strong>Name:</strong> {{ result.full_name }}</li>
+      <li><strong>ID:</strong> {{ result.id_number }}</li>
+      <li><strong>Email:</strong> {{ result.email }}</li>
+      <li><strong>Nationality:</strong> {{ result.nationality }}</li>
+      <li><strong>Address:</strong> {{ result.address }}</li>
+    </ul>
+    {% elif result == None and request.method == 'POST' %}
+    <h3>❌ No Match Found</h3>
+    {% endif %}
+  </body>
+</html>
